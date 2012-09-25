@@ -3,8 +3,7 @@ class Title
 
   MONTH_NAME_ARRAY = [nil, "January", "February", 
                 "March", "April", "May", "June", "July", "August", 
-                "September", "October", "November", "December", 
-                "January", "February"]
+                "September", "October", "November", "December"]
 
   def month_name
     raise ArgumentError, "Month DNE" if MONTH_NAME_ARRAY[@month_num].nil?
