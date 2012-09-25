@@ -20,7 +20,7 @@ class TitleTest < Test::Unit::TestCase
   end
 
   def test_03_title_month_DNE
-    title = Title.new(13, 2012)
+    title = Title.new(15, 2012)
     assert_raise ArgumentError do
       title.month_name
     end
