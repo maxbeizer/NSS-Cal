@@ -29,8 +29,21 @@ attr_reader :month, :year
     ZellerAlg.day_of_week(@month, DAY_OF_MONTH, @year)
   end
 
+  def days_put
+    day_string = ""
+    1.upto(days_in_month) {|i| day_string << " #{i} "}
+    day_string
+  end
+
+  # def week_length
+  #   # HACK: this needs to add a newline when the length
+  #   #       reaches 20
+  #   days_put.week_length
+  # end
+
   def to_s
-    puts month_name + " " + @year
+    puts month_name + " " + @year.to_s
     puts day_names
+    puts days_put
   end
 end

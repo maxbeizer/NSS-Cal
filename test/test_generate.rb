@@ -51,4 +51,9 @@ class GenerateTest < Test::Unit::TestCase
     m = Month.new(2, 2000)
     assert_equal "Su Mo Tu We Th Fr Sa" , m.day_names
   end
+
+  # def test_05_week_length
+  #   m = Month.new(2, 2000)
+  #   assert_equal  140 , m.week_length
+  # end 
 end
