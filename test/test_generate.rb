@@ -52,8 +52,18 @@ class GenerateTest < Test::Unit::TestCase
     assert_equal "Su Mo Tu We Th Fr Sa" , m.day_names
   end
 
-  # def test_05_week_length
-  #   m = Month.new(2, 2000)
-  #   assert_equal  140 , m.week_length
-  # end 
+  def test_05_days_array_populates_now_with_zeller
+    m = Month.new(2, 2000)
+    assert_equal ["   ", "   ", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                  13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+                  23, 24, 25, 26, 27, 28, 29] , m.days_array
+  end
+
+  def test_06_days_array_add_saturday_sapces
+    m = Month.new(9, 2012)
+    assert_equal ["               ", 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+                  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
+                  21, 22, 23, 24, 25, 26, 27, 28, 29, 
+                  30] , m.days_array    
+  end
 end
