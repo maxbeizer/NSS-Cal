@@ -65,7 +65,20 @@ class GenerateTest < Test::Unit::TestCase
 
   def test_06_days_array_add_saturday_sapces
     m = Month.new(9, 2012)
-    assert_equal ["               ",  " 1 ", " 2 ",
+    assert_equal ["   ", "   ", "   ", "   ", "   ", "   ",
+                 " 1 ", " 2 ",
+                 " 3 ", " 4 ", " 5 ", " 6 ", " 7 ",
+                  " 8 ", " 9 ", "10 ", "11 ", "12 ",
+                  "13 ", "14 ", "15 ", "16 ", "17 ",
+                  "18 ", "19 ", "20 ", "21 ", "22 ",
+                  "23 ", "24 ", "25 ", "26 ", "27 ",
+                  "28 ", "29 ", "30 "] , m.days_array  
+  end  
+
+  def test_06a_days_array_add_saturday_sapces
+    m = Month.new(9, 1888)
+    assert_equal ["   ", "   ", "   ", "   ", "   ", "   ",  
+                  " 1 ", " 2 ",
                  " 3 ", " 4 ", " 5 ", " 6 ", " 7 ",
                   " 8 ", " 9 ", "10 ", "11 ", "12 ",
                   "13 ", "14 ", "15 ", "16 ", "17 ",
@@ -76,16 +89,16 @@ class GenerateTest < Test::Unit::TestCase
 
   def test_07_title_spacing
     m = Month.new(5, 1981)
-    assert_equal "      ", m.title_spacing
+    assert_equal "      May 1981      ", m.title_spacing
   end
 
   def test_08_weeks_array
     m = Month.new(5, 1981)
-    assert_equal [["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "]], m.weeks_array
+    assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "], m.weeks_array[0]
   end
 
-  # def test_09_weeks_array
-  #   m = Month.new(5, 1981)
-  #   assert_equal [["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "]], m.weeks_array
-  # end
+  def test_09_weeks_array
+    m = Month.new(5, 1981)
+    assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "], m.weeks_array[0].each {|i| print i}
+  end
 end
