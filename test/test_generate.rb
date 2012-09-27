@@ -97,7 +97,7 @@ class GenerateTest < Test::Unit::TestCase
     assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "], m.weeks_array[0]
   end
 
-  def test_08_weeks_array_if_no_5th_nested_array
+  def test_08a_weeks_array_if_no_5th_nested_array
     m = Month.new(11, 2000)
     assert_equal nil , m.weeks_array[5]
   end
