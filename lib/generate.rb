@@ -16,7 +16,7 @@ attr_reader :month, :year
   end
 
   def title_spacing
-    title = month_name + " " + @year.to_s
+    title = month_name + " #@year"
     title.center(20)
   end
 
@@ -25,7 +25,7 @@ attr_reader :month, :year
   end
   
   def days_in_month
-    !(@year % 100 == 0) && @year % 4 == 0 || @year % 400 == 0 ? leap = 29 : leap = 28
+    @year % 100 != 0 && @year % 4 == 0 || @year % 400 == 0 ? leap = 29 : leap = 28
     days_in_month = [nil, 31, leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     days_in_month[@month]
   end

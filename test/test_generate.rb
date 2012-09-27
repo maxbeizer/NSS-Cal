@@ -96,9 +96,4 @@ class GenerateTest < Test::Unit::TestCase
     m = Month.new(5, 1981)
     assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "], m.weeks_array[0]
   end
-
-  def test_09_weeks_array
-    m = Month.new(5, 1981)
-    assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "], m.weeks_array[0].each {|i| print i}
-  end
 end
