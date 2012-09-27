@@ -15,6 +15,19 @@ attr_reader :month, :year
     Title.new(@month, @year).month_name
   end
 
+  def title_spacing
+    case
+    when month_name.length >= 8
+      print "   "
+    when month_name.length > 5
+      print "    "
+    when month_name.length > 3
+      print "     "
+    else
+      print "      "   
+    end
+  end
+
   def day_names
     "Su Mo Tu We Th Fr Sa"
   end
@@ -31,11 +44,10 @@ attr_reader :month, :year
 
   def days_array
     days_array = []
-    days_array.push("               ") if day_of_week == 0
-    (day_of_week-1).times {|i| days_array.push("   ")}
-    1.upto(days_in_month) {|i| days_array.push(i)}
-    #HACK: must add leading space for single digit numbers
-    
+    1.upto(days_in_month) {|i| days_array.push(i.inspect)}
+    days_array[0..8].each {|j| j.prepend(" ")}
+    days_array.unshift("               ") if day_of_week == 0
+    (day_of_week-1).times {|i| days_array.unshift("   ")}    
     days_array
 
     #IDEA: create empty array. use upto and map spaces onto 
@@ -45,10 +57,12 @@ attr_reader :month, :year
     #      join will return the string for each array .join(" ")
 
   end
+  
 
   def to_s
+    print title_spacing
     puts month_name + " " + @year.to_s
     puts day_names
-    puts days_put
+    puts days_array
   end
 end

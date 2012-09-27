@@ -54,16 +54,32 @@ class GenerateTest < Test::Unit::TestCase
 
   def test_05_days_array_populates_now_with_zeller
     m = Month.new(2, 2000)
-    assert_equal ["   ", "   ", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
-                  13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-                  23, 24, 25, 26, 27, 28, 29] , m.days_array
+    assert_equal ["   ", "   ", " 1", " 2", " 3",
+                 " 4", " 5", " 6", " 7", " 8", " 9",
+                 "10", "11", "12", "13", "14", "15",
+                 "16", "17", "18", "19", "20", "21",
+                 "22", "23", "24", "25", "26", "27",
+                  "28", "29"] , m.days_array
   end
 
   def test_06_days_array_add_saturday_sapces
     m = Month.new(9, 2012)
-    assert_equal ["               ", 1, 2, 3, 4, 5, 6, 7, 8, 9, 
-                  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
-                  21, 22, 23, 24, 25, 26, 27, 28, 29, 
-                  30] , m.days_array    
+    assert_equal ["               ", " 1", " 2", " 3",
+                 " 4", " 5", " 6", " 7", " 8", " 9",
+                 "10", "11", "12", "13", "14", "15",
+                 "16", "17", "18", "19", "20", "21",
+                 "22", "23", "24", "25", "26", "27",
+                  "28", "29", "30"] , m.days_array  
+  end
+
+  def test_07_title_spacing
+    m = Month.new(5, 1981)
+    assert_equal "      ", m.title_spacing
+  end
+
+  def test_08_splitting_array
+    m = Month.new(5, 1981)
+    m = m.days_array[0..7].to_s
+    assert_equal nil , m
   end
 end
