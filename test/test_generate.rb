@@ -92,8 +92,13 @@ class GenerateTest < Test::Unit::TestCase
     assert_equal "      May 1981      ", m.title_spacing
   end
 
-  def test_08_weeks_array
+  def test_08_weeks_array_has_nested_arrays
     m = Month.new(5, 1981)
     assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "], m.weeks_array[0]
+  end
+
+  def test_08_weeks_array_if_no_5th_nested_array
+    m = Month.new(11, 2000)
+    assert_equal nil , m.weeks_array[5]
   end
 end
