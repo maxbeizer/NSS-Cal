@@ -6,8 +6,8 @@ class Title
                 "September", "October", "November", "December"]
 
   def month_name
-    raise ArgumentError, "Month DNE" if MONTH_NAME_ARRAY[@month_num].nil?
-    MONTH_NAME_ARRAY[@month_num]
+    raise ArgumentError, "Month DNE" if MONTH_NAME_ARRAY[@month_num.to_i].nil?
+    MONTH_NAME_ARRAY[@month_num.to_i]
   end
   
   def initialize(month_num, year)
