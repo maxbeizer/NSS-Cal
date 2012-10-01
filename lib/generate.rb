@@ -46,26 +46,12 @@ attr_reader :month, :year
   def weeks_array
     weeks_array = []
     weeks_array = days_array.each_slice(7).to_a
+    weeks_array = weeks_array.each {|nested| nested.push("\n")}
   end
 
   def to_s
     puts title_spacing
     puts day_names
-    weeks_array[0].each {|i| print i} 
-    puts
-    weeks_array[1].each {|i| print i}
-    puts
-    weeks_array[2].each {|i| print i}
-    puts
-    weeks_array[3].each {|i| print i}
-    puts
-    weeks_array[4].each {|i| print i}
-    unless weeks_array[5].nil?
-      puts
-      weeks_array[5].each {|i| print i} 
-      print #otherwise will return last array twice
-    else
-      print
-    end
+    print weeks_array.join
   end
 end
