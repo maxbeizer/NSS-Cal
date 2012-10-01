@@ -39,7 +39,7 @@ attr_reader :month, :year
     1.upto(days_in_month) {|i| days_array.push(i.inspect + " ")}
     days_array[0..8].each {|j| j.prepend(" ")}
     days_array.unshift("   ", "   ", "   ", "   ", "   ", "   ") if day_of_week == 0
-    (day_of_week-1).times {|i| days_array.unshift("   ")}    
+    (day_of_week - 1).times {|i| days_array.unshift("   ")}    
     days_array
   end
 

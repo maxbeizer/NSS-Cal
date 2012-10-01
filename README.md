@@ -1,20 +1,33 @@
-This is functionally equivalent to calling Unix cal with those arguments (cal 12 2012) and the output of your program should match that of Unix cal.
+1. Goals and Intentions
+The goals for this program is to mirror the functionality of the UNIX cal (http://en.wikipedia.org/wiki/Cal_(Unix)) program. It is built from scratch using Ruby 1.9.3.
 
-We will expand upon this basic functionality to include printing of a full calendar year and a foray back into the world of web programming.
+2. Features
+NSS-Cal currently only supports printing out a single month-- so, given a command line input of a month (as indicated by a number) and a year, NSS-Cal will print the month name and the year, followed by a properly formatted Gregorian Calendar.
 
-Objectives
-Practice with Arrays, Hashes, and Strings
-Develop the logic of a non-trivial algorithm
-Programming to meet a (changing) specification
-Requirements
-Your program must have tests. These test may be as high-level or as low-level as you wish.
-You may not use any of the built-in Ruby classes that provide date, time, or calendar functionality.
-You may not use exec, Kernel, etc. to shell out to any Unix programs.
-You should not use "magic" numbers.
-You must commit your code at least once per day and push it to your github repository.
-As a capstone project, this should demonstrate your skills. Do not share code with your peers. You can help each other think about the problems, but don't help each other code.
-=======
-NSS-Cal
-=======
+3. Limitations
+	a. Currently only supports a single month input-- cannot yet print a whole year
+	b. Valid only for years between 1800 - 3000 AD. Does not accurately represent the Gregorian Reformation and adoption in September, 1752. See: http://en.wikipedia.org/wiki/Gregorian_calendar
 
-NSS cal program project
+4. How to Use NSS-Cal
+NSS-Cal uses the ruby compiler from the command line. Execute the code by typing: ruby cal.rb (month number) (year)
+User must replace month number and year with valid numbers for the program to execute properly.
+
+5. Dependencies
+NSS-Cal requires the use of Ruby 1.9.3 (N.B. has not been yet tested on 1.8.*). The program logic is highly dependent on the Zeller's Congruence (http://en.wikipedia.org/wiki/Zeller%27s_Congruence).
+
+6. File Structure
+The lib directory contains the cal.rb file and related required files. Zeller's Congruence has its own file as do many other smaller parts of the program (Month names, etc). All test files are in the test directory.
+
+7. Author Info
+As previously stated the calendar math is based off of Zeller's Congruence (http://en.wikipedia.org/wiki/Zeller%27s_Congruence). The inspiration for this basic project is from the UNIX Cal program (http://en.wikipedia.org/wiki/Cal_(Unix)).
+That being said, the program's author is Max Beizer-- @maxbeizer. Serious programmatic and general life guidance given by Eliza Brock and Jeremy Holland (but please don't troll them for my shortcomings).
+
+8. Contributions
+Feel free to open tickets or send pull requests with improvements. Thanks in advance for your help!
+
+9. To Do 
+	a. Flesh out year functionality
+	b. test on pre 1.9 ruby versions
+
+10. Changelog
+Coming soon.
