@@ -22,7 +22,11 @@ attr_reader :month, :year
   end
   
   def days_in_month
-    @year % 100 != 0 && @year % 4 == 0 || @year % 400 == 0 ? leap = 29 : leap = 28
+    if @year % 100 != 0 && @year % 4 == 0 || @year % 400 == 0 
+      leap = 29
+    else
+      leap = 28
+    end
     days_in_month = [nil, 31, leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     days_in_month[@month]
   end
