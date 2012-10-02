@@ -2,6 +2,7 @@ require_relative "zeller_alg"
 require_relative "title"
 
 DAY_OF_MONTH = 1
+DAY_NAMES = "Su Mo Tu We Th Fr Sa"
 
 class Month
 attr_reader :month, :year
@@ -19,10 +20,6 @@ attr_reader :month, :year
     title = month_name + " #@year"
     title.center(20)
   end
-
-  def day_names
-    "Su Mo Tu We Th Fr Sa"
-  end
   
   def days_in_month
     @year % 100 != 0 && @year % 4 == 0 || @year % 400 == 0 ? leap = 29 : leap = 28
@@ -31,7 +28,7 @@ attr_reader :month, :year
   end
 
   def day_of_week
-    ZellerAlg.day_of_week(@month, DAY_OF_MONTH, @year)
+    ZellerAlgorithm.day_of_week(@month, DAY_OF_MONTH, @year)
   end
 
   def days_array
@@ -51,7 +48,7 @@ attr_reader :month, :year
 
   def to_s
     puts title_spacing
-    puts day_names
+    puts DAY_NAMES
     print weeks_array.join
   end
 end

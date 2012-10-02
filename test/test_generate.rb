@@ -48,8 +48,8 @@ class GenerateTest < Test::Unit::TestCase
   end
 
   def test_04_day_names
-    m = Month.new(2, 2000)
-    assert_equal "Su Mo Tu We Th Fr Sa" , m.day_names
+    names = DAY_NAMES
+    assert_equal "Su Mo Tu We Th Fr Sa" , names
   end
 
   def test_05_days_array_populates_now_with_zeller
@@ -94,7 +94,7 @@ class GenerateTest < Test::Unit::TestCase
 
   def test_08_weeks_array_has_nested_arrays
     m = Month.new(5, 1981)
-    assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 "], m.weeks_array[0]
+    assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 ", "\n"], m.weeks_array[0]
   end
 
   def test_08a_weeks_array_if_no_5th_nested_array
