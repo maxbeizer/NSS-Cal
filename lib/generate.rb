@@ -22,6 +22,7 @@ attr_reader :month, :year
   end
   
   def days_in_month
+    #leap year math: http://en.wikipedia.org/wiki/Leap_year
     if @year % 100 != 0 && @year % 4 == 0 || @year % 400 == 0 
       leap = 29
     else
@@ -50,7 +51,7 @@ attr_reader :month, :year
     weeks_array = weeks_array.each {|nested| nested.push("\n")}
   end
 
-  def to_s
+  def print_month
     puts title_spacing
     puts DAY_NAMES
     print weeks_array.join
