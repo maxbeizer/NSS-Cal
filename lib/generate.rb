@@ -1,8 +1,9 @@
 require_relative "zeller_alg"
 require_relative "title"
 
-DAY_OF_MONTH = 1
+FIRST_OF_MONTH = 1
 DAY_NAMES = "Su Mo Tu We Th Fr Sa"
+SATURDAY_START = 0
 
 class Month
 attr_reader :month, :year
@@ -32,16 +33,23 @@ attr_reader :month, :year
     days_in_month[@month]
   end
 
-  def day_of_week
-    ZellerAlgorithm.day_of_week(@month, DAY_OF_MONTH, @year)
+  def week_start_day
+    ZellerAlgorithm.day_of_week(@month, FIRST_OF_MONTH, @year)
   end
 
   def days_array
     days_array = []
-    1.upto(days_in_month) {|i| days_array.push(i.inspect + " ")}
-    days_array[0..8].each {|j| j.prepend(" ")}
-    days_array.unshift("   ", "   ", "   ", "   ", "   ", "   ") if day_of_week == 0
-    (day_of_week - 1).times {|i| days_array.unshift("   ")}    
+    #add total days in month with trailing space to line it up
+    1.upto(days_in_month) {|day| days_array.push(day.inspect + " ")}
+    #add leading space to all single digit numbers
+    days_array[0..8].each {|digit| digit.prepend(" ")}
+    #shift start day for saturday-- must keep as separate spaces for alignment
+    if week_start_day == SATURDAY_START
+      days_array.unshift("   ", "   ", "   ", "   ", "   ", "   ") 
+    else
+      #start day for other than Sat. is "-1" because Mon. has no spaces
+      (week_start_day - 1).times {|space| days_array.unshift("   ")}    
+    end
     days_array
   end
 

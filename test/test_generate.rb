@@ -19,13 +19,13 @@ class GenerateTest < Test::Unit::TestCase
     n = Month.new(10, 2012)
     o = Month.new(1, 1812)
     p = Month.new(12, 2912)
-    assert_equal 0 , m.day_of_week
-    assert_equal 2 , n.day_of_week
-    assert_equal 4 , o.day_of_week
-    assert_equal 5 , p.day_of_week
+    assert_equal 0 , m.week_start_day
+    assert_equal 2 , n.week_start_day
+    assert_equal 4 , o.week_start_day
+    assert_equal 5 , p.week_start_day
   end
 
-  def test_03_days_in_month
+  def test_03a_days_in_month
     m = Month.new(9, 2012)
     n = Month.new(10, 2012)
     o = Month.new(1, 1812)
@@ -36,15 +36,18 @@ class GenerateTest < Test::Unit::TestCase
     assert_equal 31 , p.days_in_month  
   end
 
-  def test_03a_days_in_month_leap_months
+  def test_03b_days_in_month_leap_months
     m = Month.new(2, 2012)
-    n = Month.new(2, 2011)
-    o = Month.new(2, 1800)
     p = Month.new(2, 2000)
     assert_equal 29 , m.days_in_month
+    assert_equal 29 , p.days_in_month  
+  end
+
+  def test_03c_days_in_month_non_leap_months
+    n = Month.new(2, 2011)
+    o = Month.new(2, 1800)
     assert_equal 28 , n.days_in_month
     assert_equal 28 , o.days_in_month
-    assert_equal 29 , p.days_in_month  
   end
 
   def test_04_day_names
