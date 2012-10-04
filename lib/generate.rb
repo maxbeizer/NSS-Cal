@@ -21,7 +21,7 @@ attr_reader :month, :year
     title = month_name + " #@year"
     title.center(20)
   end
-  
+
   def days_in_month
     #leap year math: http://en.wikipedia.org/wiki/Leap_year
     if @year % 100 != 0 && @year % 4 == 0 || @year % 400 == 0 
