@@ -45,13 +45,20 @@ attr_reader :year
         first_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
         m+= 1
       end
-    w += 1
+      w += 1
     end
     first_block
   end
 
   def flatten_block
-    grouped_block = first_block.each_slice(3).to_a
-    grouped_block[0].flatten.join
+    i = 0
+    lines = []
+    while i*3 < first_block.length
+      line = first_block[i*3..i*3+2].flatten.join
+      lines << line
+      i += 1
+    end
+    lines
   end
+#HACK: add gsub! to remove spare \n 's ?
 end
