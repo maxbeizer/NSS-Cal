@@ -60,5 +60,4 @@ attr_reader :year
     end
     lines
   end
-#HACK: add gsub! to remove spare \n 's ?
 end

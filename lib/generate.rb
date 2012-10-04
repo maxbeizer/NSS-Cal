@@ -59,12 +59,12 @@ attr_reader :month, :year
     until weeks_array.last.length == 7
       weeks_array.last << "   "
     end
-    weeks_array
+    weeks_array = weeks_array.each {|nested| nested.push("\n")}
   end
 
   def print_month
     puts title_spacing
     puts DAY_NAMES
-    print weeks_array.join.concat("\n")
+    print weeks_array.join
   end
 end
