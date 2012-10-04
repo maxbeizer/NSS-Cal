@@ -38,8 +38,15 @@ class YearTest < Test::Unit::TestCase
     assert_equal "Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  " , y.day_names
   end
 
-  def test_05_first_week_row
+  def test_05_first_block_first_array
     y = Year.new(2012)
-    assert_equal " 1  2  3  4  5  6  7            1  2  3  4               1  2  3  " , y.week_row(1)
+    assert_equal [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " "] , y.first_block[0]
   end
+
+  def test_06_flatten_first_block_by_3_months
+    y = Year.new(2012)
+    assert_equal " 1  2  3  4  5  6  7            1  2  3  4               1  2  3  " , y.flatten_block
+  end
+
+  
 end

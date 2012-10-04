@@ -35,12 +35,23 @@ attr_reader :year
     day_name_groups.join
   end
 
-  def week_row (week_num)
+  def first_block 
 #this is ridiculously ugly, but could be translated into something that works
-    week_row = []
-    week_row << Month.new(1, @year).weeks_array[0].first(7).push(" ")
-    week_row << Month.new(2, @year).weeks_array[0].first(7).push(" ")
-    week_row << Month.new(3, @year).weeks_array[0].first(7).push(" ")
-    week_row.join
+    first_block = []
+    w = 0
+    until w > 4
+      m = 1
+      until m > 3
+        first_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
+        m+= 1
+      end
+    w += 1
+    end
+    first_block
+  end
+
+  def flatten_block
+    grouped_block = first_block.each_slice(3).to_a
+    grouped_block[0].flatten.join
   end
 end
