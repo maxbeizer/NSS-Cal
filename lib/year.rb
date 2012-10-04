@@ -144,5 +144,14 @@ attr_reader :year
     puts month_names(1, 3)
     puts day_names
     puts flatten_first_block
+    puts month_names(4, 6)
+    puts day_names
+    puts flatten_second_block
+    puts month_names(7, 9)
+    puts day_names
+    puts flatten_third_block
+    puts month_names(10, 12)
+    puts day_names
+    puts flatten_fourth_block
   end
 end
