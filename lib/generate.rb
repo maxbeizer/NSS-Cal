@@ -56,12 +56,15 @@ attr_reader :month, :year
   def weeks_array
     weeks_array = []
     weeks_array = days_array.each_slice(7).to_a
-    weeks_array = weeks_array.each {|nested| nested.push("\n")}
+    until weeks_array.last.length == 7
+      weeks_array.last << "   "
+    end
+    weeks_array
   end
 
   def print_month
     puts title_spacing
     puts DAY_NAMES
-    print weeks_array.join
+    print weeks_array.join.concat("\n")
   end
 end
