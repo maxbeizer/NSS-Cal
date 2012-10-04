@@ -32,4 +32,14 @@ class YearTest < Test::Unit::TestCase
     y = Year.new(2012)
     assert_equal "      October               November              December        ", y.month_names(10, 12) 
   end
+
+  def test_04_day_names
+    y = Year.new(2012)
+    assert_equal "Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  " , y.day_names
+  end
+
+  def test_05_first_week_row
+    y = Year.new(2012)
+    assert_equal " 1  2  3  4  5  6  7            1  2  3  4               1  2  3  " , y.week_row(1)
+  end
 end
