@@ -56,6 +56,10 @@ attr_reader :month, :year
   def weeks_array
     weeks_array = []
     weeks_array = days_array.each_slice(7).to_a
+    weeks_array << ["   "]
+    until weeks_array[-2].length == 7
+      weeks_array[-2] << "   "
+    end
     until weeks_array.last.length == 7
       weeks_array.last << "   "
     end

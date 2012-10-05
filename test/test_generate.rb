@@ -100,14 +100,14 @@ class GenerateTest < Test::Unit::TestCase
     assert_equal ["   ", "   ", "   ", "   ", "   ", " 1 ", " 2 ", "\n"], m.weeks_array[0]
   end
 
-  def test_08a_weeks_array_if_no_5th_nested_array
+  def test_08a_weeks_array_always_has_at_least_5th_nested_array
     m = Month.new(11, 2000)
-    assert_equal nil , m.weeks_array[5]
+    assert_equal ["   ", "   ", "   ", "   ", "   ", "   ", "   ", "\n"] , m.weeks_array[5]
   end
 
   def test_09_trailing_spaces_to_fill_out_last_week
     m = Month.new(2, 2012)
-    assert_equal ["26 ", "27 ", "28 ", "29 ", "   ", "   ", "   ", "\n"] , m.weeks_array.last
+    assert_equal ["26 ", "27 ", "28 ", "29 ", "   ", "   ", "   ", "\n"] , m.weeks_array[-2]
   end 
 
 #   def test_10_print_month_method

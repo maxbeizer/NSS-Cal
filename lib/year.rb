@@ -34,12 +34,12 @@ attr_reader :year
     day_name_groups << (DAY_NAMES + "  ") * 3
     day_name_groups.join
   end
-
+### ----------------
+#here down needs heavy refactoring, ugly. not exactly DRY
   def first_block 
-#this is ridiculously ugly, but could be translated into something that works
     first_block = []
     w = 0
-    until w > 4
+    until w > 5
       m = 1
       until m > 3
         first_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
@@ -62,10 +62,9 @@ attr_reader :year
   end
 
   def second_block 
-#this is ridiculously ugly, but could be translated into something that works
     second_block = []
     w = 0
-    until w > 4
+    until w > 5
       m = 4
       until m > 6
         second_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
@@ -88,10 +87,9 @@ attr_reader :year
   end
 
   def third_block 
-#this is ridiculously ugly, but could be translated into something that works
     third_block = []
     w = 0
-    until w > 4
+    until w > 5
       m = 7
       until m > 9
         third_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
@@ -114,10 +112,9 @@ attr_reader :year
   end
 
   def fourth_block 
-#this is ridiculously ugly, but could be translated into something that works
     fourth_block = []
     w = 0
-    until w > 4
+    until w > 5
       m = 10
       until m > 12
         fourth_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
@@ -144,12 +141,15 @@ attr_reader :year
     puts month_names(1, 3)
     puts day_names
     puts flatten_first_block
+    puts
     puts month_names(4, 6)
     puts day_names
     puts flatten_second_block
+    puts
     puts month_names(7, 9)
     puts day_names
     puts flatten_third_block
+    puts
     puts month_names(10, 12)
     puts day_names
     puts flatten_fourth_block
