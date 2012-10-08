@@ -48,8 +48,8 @@ attr_reader :year
     month_block
   end
 
-  def flatten_block(num)
-    case num
+  def flatten_block(block_num)
+    case block_num
     when 1
       block = month_block(1, 3)
     when 2
