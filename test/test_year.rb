@@ -50,7 +50,7 @@ class YearTest < Test::Unit::TestCase
  "15 16 17 18 19 20 21  12 13 14 15 16 17 18  11 12 13 14 15 16 17  ",
  "22 23 24 25 26 27 28  19 20 21 22 23 24 25  18 19 20 21 22 23 24  ",
  "29 30 31              26 27 28 29           25 26 27 28 29 30 31  ",
- "                                                                  "] , y.flatten_first_block
+ "                                                                  "] , y.flatten_block(1)
   end
 
   def test_06a_flatten_second_block_by_3_months
@@ -60,7 +60,7 @@ class YearTest < Test::Unit::TestCase
  "15 16 17 18 19 20 21  13 14 15 16 17 18 19  10 11 12 13 14 15 16  ",
  "22 23 24 25 26 27 28  20 21 22 23 24 25 26  17 18 19 20 21 22 23  ",
  "29 30                 27 28 29 30 31        24 25 26 27 28 29 30  ",
- "                                                                  "], y.flatten_second_block
+ "                                                                  "], y.flatten_block(2)
   end
 
   def test_06b_flatten_third_block_by_3_months
@@ -70,7 +70,7 @@ class YearTest < Test::Unit::TestCase
  "15 16 17 18 19 20 21  12 13 14 15 16 17 18   9 10 11 12 13 14 15  ",
  "22 23 24 25 26 27 28  19 20 21 22 23 24 25  16 17 18 19 20 21 22  ",
  "29 30 31              26 27 28 29 30 31     23 24 25 26 27 28 29  ",
- "                                            30                    "] , y.flatten_third_block
+ "                                            30                    "] , y.flatten_block(3)
   end
 
   def test_06c_flatten_fourth_block_by_3_months
@@ -80,6 +80,6 @@ class YearTest < Test::Unit::TestCase
  "14 15 16 17 18 19 20  11 12 13 14 15 16 17   9 10 11 12 13 14 15  ",
  "21 22 23 24 25 26 27  18 19 20 21 22 23 24  16 17 18 19 20 21 22  ",
  "28 29 30 31           25 26 27 28 29 30     23 24 25 26 27 28 29  ",
- "                                            30 31                 "], y.flatten_fourth_block
+ "                                            30 31                 "], y.flatten_block(4)
   end  
 end

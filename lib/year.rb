@@ -50,17 +50,6 @@ attr_reader :year
     first_block
   end
 
-  def flatten_first_block
-    i = 0
-    lines = []
-    while i*3 < first_block.length
-      line = first_block[i*3..i*3+2].flatten.join
-      lines << line
-      i += 1
-    end
-    lines
-  end
-
   def second_block 
     second_block = []
     w = 0
@@ -73,17 +62,6 @@ attr_reader :year
       w += 1
     end
     second_block
-  end
-
-  def flatten_second_block
-    i = 0
-    lines = []
-    while i*3 < second_block.length
-      line = second_block[i*3..i*3+2].flatten.join
-      lines << line
-      i += 1
-    end
-    lines
   end
 
   def third_block 
@@ -100,17 +78,6 @@ attr_reader :year
     third_block
   end
 
-  def flatten_third_block
-    i = 0
-    lines = []
-    while i*3 < third_block.length
-      line = third_block[i*3..i*3+2].flatten.join
-      lines << line
-      i += 1
-    end
-    lines
-  end
-
   def fourth_block 
     fourth_block = []
     w = 0
@@ -125,11 +92,21 @@ attr_reader :year
     fourth_block
   end
 
-  def flatten_fourth_block
+  def flatten_block(num)
+    case num
+    when 1
+      block = first_block
+    when 2
+      block = second_block
+    when 3
+      block = third_block
+    when 4
+      block = fourth_block
+    end
     i = 0
     lines = []
-    while i*3 < fourth_block.length
-      line = fourth_block[i*3..i*3+2].flatten.join
+    while i*3 < block.length
+      line = block[i*3..i*3+2].flatten.join
       lines << line
       i += 1
     end
@@ -141,15 +118,14 @@ attr_reader :year
     puts day_names
     case finish
     when 3
-      puts flatten_first_block
+      puts flatten_block(1)
     when 6
-      puts flatten_second_block
+      puts flatten_block(2)
     when 9
-      puts flatten_third_block
+      puts flatten_block(3)
     when 12
-      puts flatten_fourth_block  
+      puts flatten_block(4)  
     end
-
   end
 
   def print_year
