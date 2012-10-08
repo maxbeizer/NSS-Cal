@@ -40,7 +40,7 @@ class YearTest < Test::Unit::TestCase
 
   def test_05_first_block_first_array
     y = Year.new(2012)
-    assert_equal [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " "] , y.first_block[0]
+    assert_equal [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " "] , y.month_block(1, 3)[0]
   end
 
   def test_06_flatten_first_block_by_3_months

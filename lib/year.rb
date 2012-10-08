@@ -22,7 +22,6 @@ attr_reader :year
     i = start
     month_groups = []    
     until i > finish
-#this line needs serious work. serious.
       month_groups << Title.new(i, @year).month_name.center(20) + "  "
       i += 1
     end
@@ -34,74 +33,31 @@ attr_reader :year
     day_name_groups << (DAY_NAMES + "  ") * 3
     day_name_groups.join
   end
-### ----------------
-#here down needs heavy refactoring, ugly. not exactly DRY
-  def first_block 
-    first_block = []
-    w = 0
-    until w > 5
-      m = 1
-      until m > 3
-        first_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
-        m+= 1
-      end
-      w += 1
-    end
-    first_block
-  end
 
-  def second_block 
-    second_block = []
+  def month_block(month_start_num, month_end_num) 
+    month_block = []
     w = 0
     until w > 5
-      m = 4
-      until m > 6
-        second_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
+      m = month_start_num
+      until m > month_end_num
+        month_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
         m+= 1
       end
       w += 1
     end
-    second_block
-  end
-
-  def third_block 
-    third_block = []
-    w = 0
-    until w > 5
-      m = 7
-      until m > 9
-        third_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
-        m+= 1
-      end
-      w += 1
-    end
-    third_block
-  end
-
-  def fourth_block 
-    fourth_block = []
-    w = 0
-    until w > 5
-      m = 10
-      until m > 12
-        fourth_block << Month.new(m, @year).weeks_array[w].first(7).push(" ")
-        m+= 1
-      end
-      w += 1
-    end
-    fourth_block
+    month_block
   end
 
   def flatten_block(num)
     case num
     when 1
-      block = first_block
+      block = month_block(1, 3)
     when 2
-      block = second_block
+      block = month_block(4, 6)
     when 3
-      block = third_block
+      block = month_block(7, 9)
     when 4
-      block = fourth_block
+      block = month_block(10, 12)
     end
     i = 0
     lines = []
