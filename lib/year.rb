@@ -136,22 +136,27 @@ attr_reader :year
     lines
   end
 
+  def print_block(start, finish)
+    puts month_names(start, finish)
+    puts day_names
+    case finish
+    when 3
+      puts flatten_first_block
+    when 6
+      puts flatten_second_block
+    when 9
+      puts flatten_third_block
+    when 12
+      puts flatten_fourth_block  
+    end
+
+  end
+
   def print_year
     puts year_spacing
-    puts month_names(1, 3)
-    puts day_names
-    puts flatten_first_block
-    puts
-    puts month_names(4, 6)
-    puts day_names
-    puts flatten_second_block
-    puts
-    puts month_names(7, 9)
-    puts day_names
-    puts flatten_third_block
-    puts
-    puts month_names(10, 12)
-    puts day_names
-    puts flatten_fourth_block
+    print_block(1, 3)
+    print_block(4, 6)
+    print_block(7, 9)
+    print_block(10, 12)
   end
 end
