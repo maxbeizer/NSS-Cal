@@ -16,11 +16,11 @@ attr_reader :year
 
   def month_spacing
     month_groups
-  end  
+  end
 
   def month_names (start, finish)
     i = start
-    month_groups = []    
+    month_groups = []
     until i > finish
       month_groups << Title.new(i, @year).month_name.center(20) + "  "
       i += 1
@@ -80,7 +80,7 @@ attr_reader :year
     when 9
       puts flatten_block(3)
     when 12
-      puts flatten_block(4)  
+      puts flatten_block(4)
     end
   end
 

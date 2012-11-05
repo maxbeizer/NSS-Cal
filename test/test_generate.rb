@@ -33,14 +33,14 @@ class GenerateTest < Test::Unit::TestCase
     assert_equal 30 , m.days_in_month
     assert_equal 31 , n.days_in_month
     assert_equal 31 , o.days_in_month
-    assert_equal 31 , p.days_in_month  
+    assert_equal 31 , p.days_in_month
   end
 
   def test_03b_days_in_month_leap_months
     m = Month.new(2, 2012)
     p = Month.new(2, 2000)
     assert_equal 29 , m.days_in_month
-    assert_equal 29 , p.days_in_month  
+    assert_equal 29 , p.days_in_month
   end
 
   def test_03c_days_in_month_non_leap_months
@@ -75,19 +75,19 @@ class GenerateTest < Test::Unit::TestCase
                   "13 ", "14 ", "15 ", "16 ", "17 ",
                   "18 ", "19 ", "20 ", "21 ", "22 ",
                   "23 ", "24 ", "25 ", "26 ", "27 ",
-                  "28 ", "29 ", "30 "] , m.days_array  
-  end  
+                  "28 ", "29 ", "30 "] , m.days_array
+  end
 
   def test_06a_days_array_add_saturday_sapces
     m = Month.new(9, 1888)
-    assert_equal ["   ", "   ", "   ", "   ", "   ", "   ",  
+    assert_equal ["   ", "   ", "   ", "   ", "   ", "   ",
                   " 1 ", " 2 ",
                  " 3 ", " 4 ", " 5 ", " 6 ", " 7 ",
                   " 8 ", " 9 ", "10 ", "11 ", "12 ",
                   "13 ", "14 ", "15 ", "16 ", "17 ",
                   "18 ", "19 ", "20 ", "21 ", "22 ",
                   "23 ", "24 ", "25 ", "26 ", "27 ",
-                  "28 ", "29 ", "30 "] , m.days_array  
+                  "28 ", "29 ", "30 "] , m.days_array
   end
 
   def test_07_title_spacing
